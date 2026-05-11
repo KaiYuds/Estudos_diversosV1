@@ -18,7 +18,32 @@ def adicionar_tarefa():
       print(f'Tarefa "{tarefa}" adicionada com sucesso!')
       voltar_ao_menu()
 
+def visualizar_tarefas():
+    if tarefas:
+          print('Tarefas atuais:')
+          for idx, tarefa in enumerate(tarefas, start=1):
+                print(f'{idx}. {tarefa}')
+    else:
+          print('Nenhuma tarefa encontrada.')
+    voltar_ao_menu()
 
+def remover_tarefa():
+    if tarefas:
+          print('Tarefas atuais:')
+          for idx, tarefa in enumerate(tarefas, start=1):
+                print(f'{idx}. {tarefa}')
+          try:
+                indice = int(input('Digite o número da tarefa que deseja remover: '))
+                if 1 <= indice <= len(tarefas):
+                      tarefa_removida = tarefas.pop(indice - 1)
+                      print(f'Tarefa "{tarefa_removida}" removida com sucesso!')
+                else:
+                      print('Número inválido. Por favor, tente novamente.')
+          except ValueError:
+                print('Erro: Por favor, digite um número válido.')
+    else:
+          print('Nenhuma tarefa para remover.')
+    voltar_ao_menu()
 
 def escolher_opção():
     try:
